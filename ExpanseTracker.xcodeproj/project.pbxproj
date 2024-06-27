@@ -8,17 +8,29 @@
 
 /* Begin PBXBuildFile section */
 		841936362C2DA88C0089C7E0 /* ExpanseTrackerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 841936352C2DA88C0089C7E0 /* ExpanseTrackerApp.swift */; };
-		841936382C2DA88C0089C7E0 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 841936372C2DA88C0089C7E0 /* ContentView.swift */; };
+		841936382C2DA88C0089C7E0 /* ExpenseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 841936372C2DA88C0089C7E0 /* ExpenseView.swift */; };
 		8419363A2C2DA88D0089C7E0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 841936392C2DA88D0089C7E0 /* Assets.xcassets */; };
 		8419363D2C2DA88D0089C7E0 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8419363C2C2DA88D0089C7E0 /* Preview Assets.xcassets */; };
+		841936442C2DB27F0089C7E0 /* ExpenseAddView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 841936432C2DB27F0089C7E0 /* ExpenseAddView.swift */; };
+		841936492C2DB4470089C7E0 /* ExpenseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 841936482C2DB4470089C7E0 /* ExpenseModel.swift */; };
+		8419364B2C2DB6770089C7E0 /* ExpenseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8419364A2C2DB6770089C7E0 /* ExpenseViewModel.swift */; };
+		8419364D2C2DC0920089C7E0 /* TransactionRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8419364C2C2DC0920089C7E0 /* TransactionRow.swift */; };
+		841936512C2DC8BE0089C7E0 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 841936502C2DC8BE0089C7E0 /* Extensions.swift */; };
+		841936532C2DCB3D0089C7E0 /* ExpenseListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 841936522C2DCB3D0089C7E0 /* ExpenseListView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		841936322C2DA88C0089C7E0 /* ExpanseTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ExpanseTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		841936352C2DA88C0089C7E0 /* ExpanseTrackerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpanseTrackerApp.swift; sourceTree = "<group>"; };
-		841936372C2DA88C0089C7E0 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		841936372C2DA88C0089C7E0 /* ExpenseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpenseView.swift; sourceTree = "<group>"; };
 		841936392C2DA88D0089C7E0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8419363C2C2DA88D0089C7E0 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		841936432C2DB27F0089C7E0 /* ExpenseAddView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpenseAddView.swift; sourceTree = "<group>"; };
+		841936482C2DB4470089C7E0 /* ExpenseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpenseModel.swift; sourceTree = "<group>"; };
+		8419364A2C2DB6770089C7E0 /* ExpenseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpenseViewModel.swift; sourceTree = "<group>"; };
+		8419364C2C2DC0920089C7E0 /* TransactionRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionRow.swift; sourceTree = "<group>"; };
+		841936502C2DC8BE0089C7E0 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		841936522C2DCB3D0089C7E0 /* ExpenseListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpenseListView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -52,7 +64,9 @@
 			isa = PBXGroup;
 			children = (
 				841936352C2DA88C0089C7E0 /* ExpanseTrackerApp.swift */,
-				841936372C2DA88C0089C7E0 /* ContentView.swift */,
+				841936472C2DB3350089C7E0 /* ViewModel */,
+				841936462C2DB3300089C7E0 /* Model */,
+				841936452C2DB3210089C7E0 /* Views */,
 				841936392C2DA88D0089C7E0 /* Assets.xcassets */,
 				8419363B2C2DA88D0089C7E0 /* Preview Content */,
 			);
@@ -65,6 +79,34 @@
 				8419363C2C2DA88D0089C7E0 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		841936452C2DB3210089C7E0 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				841936372C2DA88C0089C7E0 /* ExpenseView.swift */,
+				841936432C2DB27F0089C7E0 /* ExpenseAddView.swift */,
+				8419364C2C2DC0920089C7E0 /* TransactionRow.swift */,
+				841936522C2DCB3D0089C7E0 /* ExpenseListView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		841936462C2DB3300089C7E0 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				841936482C2DB4470089C7E0 /* ExpenseModel.swift */,
+				841936502C2DC8BE0089C7E0 /* Extensions.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		841936472C2DB3350089C7E0 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				8419364A2C2DB6770089C7E0 /* ExpenseViewModel.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -137,7 +179,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				841936382C2DA88C0089C7E0 /* ContentView.swift in Sources */,
+				8419364B2C2DB6770089C7E0 /* ExpenseViewModel.swift in Sources */,
+				841936382C2DA88C0089C7E0 /* ExpenseView.swift in Sources */,
+				841936442C2DB27F0089C7E0 /* ExpenseAddView.swift in Sources */,
+				841936512C2DC8BE0089C7E0 /* Extensions.swift in Sources */,
+				841936532C2DCB3D0089C7E0 /* ExpenseListView.swift in Sources */,
+				8419364D2C2DC0920089C7E0 /* TransactionRow.swift in Sources */,
+				841936492C2DB4470089C7E0 /* ExpenseModel.swift in Sources */,
 				841936362C2DA88C0089C7E0 /* ExpanseTrackerApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

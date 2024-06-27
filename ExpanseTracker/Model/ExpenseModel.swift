@@ -7,10 +7,17 @@
 
 import Foundation
 
-struct ExpanseModel {
+struct Expense: Identifiable, Codable {
     var id = UUID()
     var name: String
     var amount: Double
     var category: String
-    var date: Date
+    var date: String
+    
+    var dateParsed: Date {
+        date.dateParsed()
+    }
 }
+
+
+
