@@ -24,9 +24,14 @@ struct TransactionRow: View {
                     .font(.caption)
                     .foregroundStyle(.gray)
             }
+            Spacer()
             Text(expense.amount, format: .currency(code: "PLN"))
+                .font(.subheadline)
+                .fontWeight(.semibold)
                 .bold()
+                .padding(4)
         }
+        .padding(.leading)
     }
 }
 
