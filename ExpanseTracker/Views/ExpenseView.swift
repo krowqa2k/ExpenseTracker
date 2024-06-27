@@ -8,37 +8,32 @@
 import SwiftUI
 
 struct ExpenseView: View {
-    
     @State private var darkMode: Bool = false
-    @EnvironmentObject var ExpenseViewModel: ExpenseViewModel
-    
+    @EnvironmentObject var expenseViewModel: ExpenseViewModel // Poprawna nazwa zmiennej
+
     var body: some View {
         NavigationStack {
-            ScrollView {
-                // MARK: Title
-                VStack(spacing: 24) {
-                    Text("My expenses")
-                        .font(.title2)
-                        .fontWeight(.semibold)
-                        .padding()
-                }
-                .frame(maxWidth: .infinity, alignment: .leading)
-                
-                // MARK: Chart
-                
-                // MARK: Transactions
+            VStack(alignment: .leading) {
+                Text("My Expanses")
+                    .font(.title2)
+                    .fontWeight(.semibold)
+                    .padding(.horizontal)
+                Text("Chart will be here")
+                    .frame(width: 400, height: 450)
+                ExpenseListView()
             }
-            .toolbar(content: {
-                ToolbarItem(placement: .topBarTrailing) {
+            .toolbar {
+                ToolbarItem(placement: .topBarLeading) {
                     darkModeIcon
                 }
                 ToolbarItem(placement: .topBarTrailing) {
                     addExpenseIcon
                 }
-            })
+            }
         }
     }
 }
+
 
 #Preview {
     ExpenseView()
