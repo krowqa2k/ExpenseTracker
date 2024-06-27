@@ -8,10 +8,14 @@
 import SwiftUI
 
 @main
-struct ExpanseTrackerApp: App {
+struct ExpenseTrackerApp: App {
+    
+    @StateObject var ExpenseTracker: ExpenseViewModel = ExpenseViewModel()
+    
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            ExpenseView()
+                .environmentObject(ExpenseViewModel())
         }
     }
 }
