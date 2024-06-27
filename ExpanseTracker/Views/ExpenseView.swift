@@ -14,7 +14,7 @@ struct ExpenseView: View {
     var body: some View {
         NavigationStack {
             VStack(alignment: .leading) {
-                Text("My Expanses")
+                Text("My Expenses")
                     .font(.title2)
                     .fontWeight(.semibold)
                     .padding(.horizontal)
