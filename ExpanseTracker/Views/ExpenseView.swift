@@ -19,7 +19,20 @@ struct ExpenseView: View {
                     .fontWeight(.semibold)
                     .padding(.horizontal)
                 Text("Chart will be here")
-                    .frame(width: 400, height: 350)
+                    .frame(width: 400, height: 400)
+                NavigationLink(destination: ExpenseListView()) {
+                    ZStack(alignment: .trailing){
+                        RoundedRectangle(cornerRadius: 15)
+                            .frame(maxWidth: .infinity, maxHeight: 20)
+                            .opacity(0)
+                        Text("See all here...")
+                            .foregroundStyle(.black)
+                            .padding(.horizontal)
+                            .frame(width: 140, height: 25)
+                            .background(Color(UIColor.lightGray))
+                            .cornerRadius(8)
+                    }
+                }
                 ExpenseListView()
             }
             .toolbar {

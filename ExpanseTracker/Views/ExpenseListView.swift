@@ -17,6 +17,7 @@ struct ExpenseListView: View {
                 TransactionRow(expense: expense)
             }
         }
+        .listStyle(InsetListStyle())
     }
 }
 
