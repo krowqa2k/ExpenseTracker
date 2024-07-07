@@ -19,7 +19,7 @@ struct ExpenseView: View {
                     .fontWeight(.semibold)
                     .padding(.horizontal)
                 Text("Chart will be here")
-                    .frame(width: 400, height: 450)
+                    .frame(width: 400, height: 350)
                 ExpenseListView()
             }
             .toolbar {
