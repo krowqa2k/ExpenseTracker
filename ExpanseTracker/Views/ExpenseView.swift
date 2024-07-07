@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct ExpenseView: View {
-    @State private var darkMode: Bool = false
+    @AppStorage("isDarkMode") private var isDarkMode = false
     @EnvironmentObject var expenseViewModel: ExpenseViewModel // Poprawna nazwa zmiennej
 
     var body: some View {
@@ -55,9 +55,9 @@ struct ExpenseView: View {
 
 extension ExpenseView {
     private var darkModeIcon: some View {
-        Image(systemName: darkMode ? "moon.fill" : "moon")
+        Image(systemName: isDarkMode ? "moon.fill" : "moon")
             .onTapGesture {
-                darkMode.toggle()
+                isDarkMode.toggle()
             }
     }
     
@@ -66,7 +66,7 @@ extension ExpenseView {
             ExpenseAddView()
         } label: {
             Image(systemName: "plus.app")
-                .foregroundStyle(.black)
+                .foregroundStyle(isDarkMode ? .white : .black)
         }
     }
 }

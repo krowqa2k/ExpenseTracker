@@ -11,11 +11,13 @@ import SwiftUI
 struct ExpenseTrackerApp: App {
     
     @StateObject var ExpenseTracker: ExpenseViewModel = ExpenseViewModel()
+    @AppStorage("isDarkMode") private var isDarkMode = false
     
     var body: some Scene {
         WindowGroup {
             ExpenseView()
                 .environmentObject(ExpenseViewModel())
+                .preferredColorScheme(isDarkMode ? .dark : .light)
         }
     }
 }
