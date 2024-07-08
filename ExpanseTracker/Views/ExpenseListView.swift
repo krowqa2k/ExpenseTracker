@@ -12,12 +12,19 @@ struct ExpenseListView: View {
     @EnvironmentObject private var ExpenseViewModel: ExpenseViewModel
     
     var body: some View {
-        List {
-            ForEach(ExpenseViewModel.expenses){ expense in
-                TransactionRow(expense: expense)
+        VStack(alignment: .leading) {
+            Text("Latest transactions")
+                .font(.headline)
+                .fontWeight(.light)
+                .padding(.horizontal)
+            List() {
+                ForEach(ExpenseViewModel.expenses){ expense in
+                    TransactionRow(expense: expense)
+                        .listRowBackground(Color.purple.opacity(0.1))
+                }
             }
+            .listStyle(InsetListStyle())
         }
-        .listStyle(InsetListStyle())
     }
 }
 

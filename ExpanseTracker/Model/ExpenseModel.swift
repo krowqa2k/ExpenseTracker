@@ -12,11 +12,11 @@ struct Expense: Identifiable, Codable {
     var name: String
     var amount: Double
     var category: String
-    var date: String
+    var date: Date
     
-    var dateParsed: Date {
-        date.dateParsed()
-    }
+//    var dateParsed: Date {
+//        date.dateParsed()
+//    }
 }
 
 

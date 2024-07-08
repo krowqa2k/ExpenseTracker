@@ -10,6 +10,7 @@ import SwiftUI
 struct TransactionRow: View {
     
     let expense: Expense
+    let screenWidth: CGFloat = UIScreen.main.bounds.width
     
     var body: some View {
         HStack {
@@ -20,7 +21,7 @@ struct TransactionRow: View {
                 Text(expense.category)
                     .font(.caption)
                     .foregroundStyle(.gray)
-                Text(expense.dateParsed, format: .dateTime.year().month().day())
+                Text(expense.date, format: .dateTime.year().month().day())
                     .font(.caption)
                     .foregroundStyle(.gray)
             }
@@ -31,10 +32,14 @@ struct TransactionRow: View {
                 .bold()
                 .padding(4)
         }
-        .padding(.leading)
+        .frame(width: screenWidth - 50)
+        .padding(.horizontal)
+        .border(Color.purple)
+        .cornerRadius(2)
+        .foregroundStyle(.purple)
     }
 }
 
 #Preview {
-    TransactionRow(expense: Expense(name: "iPhone 15 Pro", amount: 3899.99, category: "Electronic", date: "27/06/2024"))
+    TransactionRow(expense: Expense(name: "iPhone 15 Pro", amount: 3899.99, category: "Electronic", date: .now))
 }

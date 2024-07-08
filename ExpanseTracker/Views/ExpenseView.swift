@@ -10,6 +10,7 @@ import SwiftUI
 struct ExpenseView: View {
     @AppStorage("isDarkMode") private var isDarkMode = false
     @EnvironmentObject var expenseViewModel: ExpenseViewModel // Poprawna nazwa zmiennej
+    let screenHeight: CGFloat = UIScreen.main.bounds.height
 
     var body: some View {
         NavigationStack {
@@ -18,8 +19,9 @@ struct ExpenseView: View {
                     .font(.title2)
                     .fontWeight(.semibold)
                     .padding(.horizontal)
+                    .foregroundStyle(.purple)
                 Text("Chart will be here")
-                    .frame(width: 400, height: 400)
+                    .frame(width: 400, height: screenHeight/2.45)
                 NavigationLink(destination: ExpenseListView()) {
                     ZStack(alignment: .trailing){
                         RoundedRectangle(cornerRadius: 15)

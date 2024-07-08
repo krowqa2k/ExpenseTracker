@@ -64,8 +64,8 @@
 			isa = PBXGroup;
 			children = (
 				841936352C2DA88C0089C7E0 /* ExpanseTrackerApp.swift */,
-				841936472C2DB3350089C7E0 /* ViewModel */,
 				841936462C2DB3300089C7E0 /* Model */,
+				841936472C2DB3350089C7E0 /* ViewModel */,
 				841936452C2DB3210089C7E0 /* Views */,
 				841936392C2DA88D0089C7E0 /* Assets.xcassets */,
 				8419363B2C2DA88D0089C7E0 /* Preview Content */,
