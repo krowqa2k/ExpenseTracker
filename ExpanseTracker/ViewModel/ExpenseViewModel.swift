@@ -38,9 +38,29 @@ class ExpenseViewModel: ObservableObject {
         saveItems()
     }
     
+    func deleteItem(indexSet: IndexSet) {
+            expenses.remove(atOffsets: indexSet)
+        }
+    
     func saveItems() {
         if let encodedData = try? JSONEncoder().encode(expenses) {
             UserDefaults.standard.setValue(encodedData, forKey: itemsKey)
         }
     }
+}
+
+extension ExpenseViewModel {
+    func categoryExpenseSummary() -> [CategorySummary] {
+        let groupedExpenses = Dictionary(grouping: expenses, by: { $0.category })
+        return groupedExpenses.map { (category, expenses) in
+            let totalAmount = expenses.reduce(0) { $0 + $1.amount }
+            return CategorySummary(category: category, totalAmount: totalAmount)
+        }
+    }
+}
+
+struct CategorySummary: Identifiable {
+    var id: String { category }
+    var category: String
+    var totalAmount: Double
 }

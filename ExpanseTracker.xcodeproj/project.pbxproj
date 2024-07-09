@@ -17,6 +17,9 @@
 		8419364D2C2DC0920089C7E0 /* TransactionRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8419364C2C2DC0920089C7E0 /* TransactionRow.swift */; };
 		841936512C2DC8BE0089C7E0 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 841936502C2DC8BE0089C7E0 /* Extensions.swift */; };
 		841936532C2DCB3D0089C7E0 /* ExpenseListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 841936522C2DCB3D0089C7E0 /* ExpenseListView.swift */; };
+		843287222C3D7C1500DE1EC1 /* PieChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843287212C3D7C1500DE1EC1 /* PieChartView.swift */; };
+		843287252C3D7E1600DE1EC1 /* SwiftUICharts in Frameworks */ = {isa = PBXBuildFile; productRef = 843287242C3D7E1600DE1EC1 /* SwiftUICharts */; };
+		843287272C3D948D00DE1EC1 /* BarChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843287262C3D948D00DE1EC1 /* BarChartView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,6 +34,8 @@
 		8419364C2C2DC0920089C7E0 /* TransactionRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionRow.swift; sourceTree = "<group>"; };
 		841936502C2DC8BE0089C7E0 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		841936522C2DCB3D0089C7E0 /* ExpenseListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpenseListView.swift; sourceTree = "<group>"; };
+		843287212C3D7C1500DE1EC1 /* PieChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PieChartView.swift; sourceTree = "<group>"; };
+		843287262C3D948D00DE1EC1 /* BarChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarChartView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -38,6 +43,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				843287252C3D7E1600DE1EC1 /* SwiftUICharts in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -88,6 +94,8 @@
 				841936432C2DB27F0089C7E0 /* ExpenseAddView.swift */,
 				8419364C2C2DC0920089C7E0 /* TransactionRow.swift */,
 				841936522C2DCB3D0089C7E0 /* ExpenseListView.swift */,
+				843287212C3D7C1500DE1EC1 /* PieChartView.swift */,
+				843287262C3D948D00DE1EC1 /* BarChartView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -125,6 +133,9 @@
 			dependencies = (
 			);
 			name = ExpanseTracker;
+			packageProductDependencies = (
+				843287242C3D7E1600DE1EC1 /* SwiftUICharts */,
+			);
 			productName = ExpanseTracker;
 			productReference = 841936322C2DA88C0089C7E0 /* ExpanseTracker.app */;
 			productType = "com.apple.product-type.application";
@@ -153,6 +164,9 @@
 				Base,
 			);
 			mainGroup = 841936292C2DA88C0089C7E0;
+			packageReferences = (
+				843287232C3D7E1600DE1EC1 /* XCRemoteSwiftPackageReference "ChartView" */,
+			);
 			productRefGroup = 841936332C2DA88C0089C7E0 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -184,7 +198,9 @@
 				841936442C2DB27F0089C7E0 /* ExpenseAddView.swift in Sources */,
 				841936512C2DC8BE0089C7E0 /* Extensions.swift in Sources */,
 				841936532C2DCB3D0089C7E0 /* ExpenseListView.swift in Sources */,
+				843287222C3D7C1500DE1EC1 /* PieChartView.swift in Sources */,
 				8419364D2C2DC0920089C7E0 /* TransactionRow.swift in Sources */,
+				843287272C3D948D00DE1EC1 /* BarChartView.swift in Sources */,
 				841936492C2DB4470089C7E0 /* ExpenseModel.swift in Sources */,
 				841936362C2DA88C0089C7E0 /* ExpanseTrackerApp.swift in Sources */,
 			);
@@ -392,6 +408,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		843287232C3D7E1600DE1EC1 /* XCRemoteSwiftPackageReference "ChartView" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/AppPear/ChartView";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.5.5;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		843287242C3D7E1600DE1EC1 /* SwiftUICharts */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 843287232C3D7E1600DE1EC1 /* XCRemoteSwiftPackageReference "ChartView" */;
+			productName = SwiftUICharts;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 8419362A2C2DA88C0089C7E0 /* Project object */;
 }

@@ -9,19 +9,16 @@ import SwiftUI
 
 struct ExpenseListView: View {
     
-    @EnvironmentObject private var ExpenseViewModel: ExpenseViewModel
+    @EnvironmentObject private var viewModel: ExpenseViewModel
     
     var body: some View {
         VStack(alignment: .leading) {
-            Text("Latest transactions")
-                .font(.headline)
-                .fontWeight(.light)
-                .padding(.horizontal)
             List() {
-                ForEach(ExpenseViewModel.expenses){ expense in
+                ForEach(viewModel.expenses){ expense in
                     TransactionRow(expense: expense)
                         .listRowBackground(Color.purple.opacity(0.1))
                 }
+                .onDelete(perform: viewModel.deleteItem)
             }
             .listStyle(InsetListStyle())
         }

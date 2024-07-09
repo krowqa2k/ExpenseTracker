@@ -14,9 +14,6 @@ struct Expense: Identifiable, Codable {
     var category: String
     var date: Date
     
-//    var dateParsed: Date {
-//        date.dateParsed()
-//    }
 }
 
 

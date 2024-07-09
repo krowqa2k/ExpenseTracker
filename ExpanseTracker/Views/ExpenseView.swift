@@ -6,12 +6,21 @@
 //
 
 import SwiftUI
+import Charts
+
+enum ChartCategory: String, CaseIterable, Identifiable {
+    case pieChart
+    case barChart
+    
+    var id: String { self.rawValue }
+}
 
 struct ExpenseView: View {
     @AppStorage("isDarkMode") private var isDarkMode = false
     @EnvironmentObject var expenseViewModel: ExpenseViewModel // Poprawna nazwa zmiennej
     let screenHeight: CGFloat = UIScreen.main.bounds.height
-
+    @State private var chartCategory = ChartCategory.barChart
+    
     var body: some View {
         NavigationStack {
             VStack(alignment: .leading) {
@@ -20,22 +29,40 @@ struct ExpenseView: View {
                     .fontWeight(.semibold)
                     .padding(.horizontal)
                     .foregroundStyle(.purple)
-                Text("Chart will be here")
-                    .frame(width: 400, height: screenHeight/2.45)
-                NavigationLink(destination: ExpenseListView()) {
-                    ZStack(alignment: .trailing){
-                        RoundedRectangle(cornerRadius: 15)
-                            .frame(maxWidth: .infinity, maxHeight: 20)
-                            .opacity(0)
-                        Text("See all here...")
-                            .foregroundStyle(.black)
-                            .padding(.horizontal)
-                            .frame(width: 140, height: 25)
-                            .background(Color(UIColor.lightGray))
-                            .cornerRadius(8)
+                
+                Picker("Chart", selection: $chartCategory){
+                    Text("Bar chart 📊")
+                        .tag(ChartCategory.barChart)
+                    Text("Pie chart 🟣")
+                        .tag(ChartCategory.pieChart)
+                }
+                .pickerStyle(.segmented)
+                .padding(.horizontal)
+                
+                if chartCategory == ChartCategory.pieChart {
+                    PieChartView()
+                } else {
+                    BarChartView()
+                }
+                
+                
+                HStack(){
+                    Text("Latest transactions: ")
+                        .padding(.horizontal)
+                    Spacer()
+                    ZStack(){
+                        NavigationLink(destination: ExpenseListView()) {
+                            Text("See all here...")
+                                .foregroundStyle(.black)
+                                .padding(.horizontal)
+                                .background(Color(UIColor.secondaryLabel))
+                                .cornerRadius(8)
+                        }
+                        .padding(3)
                     }
                 }
                 ExpenseListView()
+                    
             }
             .toolbar {
                 ToolbarItem(placement: .topBarLeading) {

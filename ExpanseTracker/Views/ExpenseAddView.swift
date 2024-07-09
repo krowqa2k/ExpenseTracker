@@ -14,7 +14,7 @@ struct ExpenseAddView: View {
     @State private var expenseName: String = ""
     @State private var expenseCategory: String = ""
     @State private var expenseAmount: String = ""
-    @State private var selectedDate: Date = .now
+    @State private var selectedDate: Date? = nil
     
     var body: some View {
         VStack {
@@ -49,13 +49,20 @@ struct ExpenseAddView: View {
                 
                 Section("Amount"){
                     TextField("$", text: $expenseAmount)
-                        .keyboardType(.numberPad)
+                        .keyboardType(.decimalPad)
                 }
                 .font(.subheadline)
                 
                 Section("Date of transaction"){
-                    DatePicker(selection: $selectedDate, displayedComponents: [.date]) { }
-                        .datePickerStyle(.graphical)
+                    DatePicker(
+                        "Select Date",
+                        selection: Binding(
+                            get: { selectedDate ?? Date() },
+                            set: { selectedDate = $0 }
+                        ),
+                        displayedComponents: [.date]
+                    )
+                    .datePickerStyle(.graphical)
                 }
                 .font(.subheadline)
             }
@@ -63,10 +70,22 @@ struct ExpenseAddView: View {
     }
     
     func saveButtonPressed() {
-        viewModel.addItem(name: expenseName, amount: Double(expenseAmount)!, category: expenseCategory, date: selectedDate)
-        dismiss()
-    }
+        guard let selectedDate = selectedDate else {
+                print("Date not selected")
+                return
+            }
+        
+            let sanitizedAmount = expenseAmount.replacingOccurrences(of: ",", with: ".")
+            if let amount = Double(sanitizedAmount) {
+                viewModel.addItem(name: expenseName, amount: amount, category: expenseCategory, date: selectedDate)
+                dismiss()
+            } else {
+                   // Obsłuż błąd konwersji
+                print("Invalid amount entered")
+            }
+        }
 }
+
 
 #Preview {
     NavigationStack{
