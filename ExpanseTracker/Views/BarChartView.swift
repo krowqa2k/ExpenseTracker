@@ -17,22 +17,33 @@ struct BarChartView: View {
         Chart {
             ForEach(viewModel.expenses) { expense in
                 BarMark(
-                    x: .value("Category", expense.category),
+                    x: .value("Category", expense.category.rawValue),
                     y: .value("Amount", expense.amount)
                 )
-                .foregroundStyle(Color.purple.gradient)
+                .foregroundStyle(by: .value("Category", expense.category.rawValue))
                 .cornerRadius(4)
             }
         }
         .padding()
         .frame(width: 400, height: screenHeight/2.45)
-        .chartPlotStyle { plotContent in
-            plotContent
-                .background(.black.gradient.opacity(0.4))
+        .overlay {
+            if viewModel.expenses.isEmpty {
+                ContentUnavailableView.init("No Transactions", systemImage: "cart.badge.questionmark", description: Text("Add at least one transaction to see it on the chart!"))
+            }
         }
-        .chartYScale(domain: 0...3000)
+        .chartPlotStyle { plotContent in
+            if viewModel.expenses.isEmpty {
+                plotContent
+                    .background()
+            } else {
+                plotContent
+                    .background(.black.gradient.opacity(0.4))
+            }
+        }
     }
 }
+
+
 
 #Preview {
     BarChartView()
