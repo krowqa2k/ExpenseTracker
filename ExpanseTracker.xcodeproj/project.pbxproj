@@ -19,7 +19,6 @@
 		841936532C2DCB3D0089C7E0 /* ExpenseListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 841936522C2DCB3D0089C7E0 /* ExpenseListView.swift */; };
 		843287222C3D7C1500DE1EC1 /* PieChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843287212C3D7C1500DE1EC1 /* PieChartView.swift */; };
 		843287272C3D948D00DE1EC1 /* BarChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843287262C3D948D00DE1EC1 /* BarChartView.swift */; };
-		8442022D2C3EAEB500C2291F /* LineChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8442022C2C3EAEB500C2291F /* LineChartView.swift */; };
 		844202312C3EDB7C00C2291F /* EmptyListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844202302C3EDB7C00C2291F /* EmptyListView.swift */; };
 /* End PBXBuildFile section */
 
@@ -37,7 +36,6 @@
 		841936522C2DCB3D0089C7E0 /* ExpenseListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpenseListView.swift; sourceTree = "<group>"; };
 		843287212C3D7C1500DE1EC1 /* PieChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PieChartView.swift; sourceTree = "<group>"; };
 		843287262C3D948D00DE1EC1 /* BarChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarChartView.swift; sourceTree = "<group>"; };
-		8442022C2C3EAEB500C2291F /* LineChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineChartView.swift; sourceTree = "<group>"; };
 		844202302C3EDB7C00C2291F /* EmptyListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyListView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -98,7 +96,6 @@
 				841936522C2DCB3D0089C7E0 /* ExpenseListView.swift */,
 				843287212C3D7C1500DE1EC1 /* PieChartView.swift */,
 				843287262C3D948D00DE1EC1 /* BarChartView.swift */,
-				8442022C2C3EAEB500C2291F /* LineChartView.swift */,
 				844202302C3EDB7C00C2291F /* EmptyListView.swift */,
 			);
 			path = Views;
@@ -197,7 +194,6 @@
 			files = (
 				8419364B2C2DB6770089C7E0 /* ExpenseViewModel.swift in Sources */,
 				841936382C2DA88C0089C7E0 /* ExpenseView.swift in Sources */,
-				8442022D2C3EAEB500C2291F /* LineChartView.swift in Sources */,
 				841936442C2DB27F0089C7E0 /* ExpenseAddView.swift in Sources */,
 				841936512C2DC8BE0089C7E0 /* Extensions.swift in Sources */,
 				841936532C2DCB3D0089C7E0 /* ExpenseListView.swift in Sources */,

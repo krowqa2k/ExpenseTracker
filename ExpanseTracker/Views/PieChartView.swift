@@ -18,14 +18,16 @@ struct PieChartView: View {
             ForEach(viewModel.categoryExpenseSummary()) { categorySummary in
                 SectorMark(
                     angle: .value("Category", categorySummary.totalAmount),
-                    angularInset: 1.0
+                    innerRadius: .ratio(0.6),
+                    angularInset: 1
                 )
                 .foregroundStyle(by: .value("Category", categorySummary.category.rawValue))
                 .cornerRadius(6)
             }
         }
+        .chartLegend(spacing: 12)
         .padding()
-        .frame(width: 400, height: screenHeight/2.3)
+        .frame(width: 400, height: screenHeight/2.2)
         .overlay {
             if viewModel.expenses.isEmpty {
                 ContentUnavailableView.init("No Transactions", systemImage: "cart.badge.questionmark", description: Text("Add at least one transaction to see it on the chart!"))

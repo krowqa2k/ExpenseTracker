@@ -23,7 +23,7 @@ enum ExpenseCategory: String, CaseIterable, Identifiable, Codable {
     case electronics = "Electronics"
     case healthAndBeauty = "Health"
     case entertainment = "Fun"
-    case clothing = "Clothing"
+    case clothing = "Clothes"
     case other = "Other"
     
     var id: String { self.rawValue }
