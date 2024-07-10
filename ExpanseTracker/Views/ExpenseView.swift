@@ -11,6 +11,7 @@ import Charts
 enum ChartCategory: String, CaseIterable, Identifiable {
     case pieChart
     case barChart
+    case lineChart
     
     var id: String { self.rawValue }
 }
@@ -31,18 +32,22 @@ struct ExpenseView: View {
                     .foregroundStyle(.purple)
                 
                 Picker("Chart", selection: $chartCategory){
-                    Text("Bar chart 📊")
+                    Image(systemName: "chart.bar.fill")
                         .tag(ChartCategory.barChart)
-                    Text("Pie chart 🟣")
+                    Image(systemName: "chart.pie.fill")
                         .tag(ChartCategory.pieChart)
+                    Image(systemName: "chart.line.uptrend.xyaxis")
+                        .tag(ChartCategory.lineChart)
                 }
                 .pickerStyle(.segmented)
                 .padding(.horizontal)
                 
                 if chartCategory == ChartCategory.pieChart {
                     PieChartView()
-                } else {
+                } else if chartCategory == ChartCategory.barChart {
                     BarChartView()
+                } else {
+                    LineChartView()
                 }
                 
                 
