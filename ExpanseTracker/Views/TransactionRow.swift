@@ -28,6 +28,7 @@ struct TransactionRow: View {
             Spacer()
             Text(expense.amount, format: .currency(code: "PLN"))
                 .font(.subheadline)
+                .foregroundStyle(.white)
                 .fontWeight(.semibold)
                 .bold()
                 .padding(4)
