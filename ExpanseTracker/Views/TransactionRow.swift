@@ -15,9 +15,11 @@ struct TransactionRow: View {
     var body: some View {
         HStack {
             VStack(alignment: .leading) {
-                Text(expense.name)
+                Text(expense.name.capitalized)
                     .font(.headline)
-                    .fontWeight(.medium)
+                    .fontWeight(.bold)
+                    .foregroundStyle(.white)
+                
                 Text(expense.category.rawValue)
                     .font(.caption)
                     .foregroundStyle(.gray)
@@ -27,14 +29,13 @@ struct TransactionRow: View {
             }
             Spacer()
             Text(expense.amount, format: .currency(code: "PLN"))
-                .font(.subheadline)
+                .font(.headline)
                 .foregroundStyle(.white)
-                .fontWeight(.semibold)
+                .fontWeight(.bold)
                 .bold()
                 .padding(4)
         }
         .frame(width: screenWidth - 50)
-        .padding(.horizontal)
         .foregroundStyle(.purple)
     }
 }

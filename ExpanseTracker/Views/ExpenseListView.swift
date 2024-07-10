@@ -23,8 +23,9 @@ struct ExpenseListView: View {
         NavigationStack {
             VStack(alignment: .leading) {
                 HStack {
-                    Text("All transactions")
+                    Text("All transactions:")
                         .font(.title3)
+                        .foregroundStyle(.purple)
                         .padding()
                     
                     Spacer()
@@ -48,13 +49,13 @@ struct ExpenseListView: View {
                 List() {
                     ForEach(filteredTransactions){ expense in
                         TransactionRow(expense: expense)
-                            .listRowBackground(Color.purple.opacity(0.2).cornerRadius(12))
                     }
                     .onDelete(perform: viewModel.deleteItem)
                 }
                 .searchable(text: $searchTerm, placement: .toolbar, prompt: "Search transactions")
-                .padding(.horizontal)
-                .listStyle(InsetListStyle())
+                .padding(.horizontal, 4)
+                .cornerRadius(12)
+                .listStyle(PlainListStyle())
                 .overlay {
                     if viewModel.expenses.isEmpty {
                         EmptyListView()

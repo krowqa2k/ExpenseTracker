@@ -17,7 +17,7 @@ enum ChartCategory: String, CaseIterable, Identifiable {
 
 struct ExpenseView: View {
     @AppStorage("isDarkMode") private var isDarkMode = false
-    @EnvironmentObject var expenseViewModel: ExpenseViewModel // Poprawna nazwa zmiennej
+    @EnvironmentObject var expenseViewModel: ExpenseViewModel
     let screenHeight: CGFloat = UIScreen.main.bounds.height
     @State private var chartCategory = ChartCategory.barChart
     
@@ -27,7 +27,7 @@ struct ExpenseView: View {
                 Text("My Expenses")
                     .font(.title2)
                     .fontWeight(.semibold)
-                    .padding(.horizontal)
+                    .padding(.horizontal, 4)
                     .foregroundStyle(.purple)
                 
                 Picker("Chart", selection: $chartCategory){
@@ -39,13 +39,12 @@ struct ExpenseView: View {
                 .pickerStyle(.segmented)
                 .padding(.horizontal)
                 
-                if chartCategory == ChartCategory.pieChart {
-                        PieChartView()
-                } else  { BarChartView() }
+                if chartCategory == ChartCategory.pieChart { PieChartView() }
+                else  { BarChartView() }
                 
                 HStack(){
                     Text("Latest transactions: ")
-                        .padding(.horizontal)
+                        .padding(.horizontal, 5)
                     Spacer()
                     ZStack(){
                         NavigationLink(destination: ExpenseListView()) {
@@ -62,22 +61,18 @@ struct ExpenseView: View {
                 List() {
                     ForEach(expenseViewModel.expenses){ expense in
                         TransactionRow(expense: expense)
-                            .listRowBackground(Color.purple.opacity(0.2).cornerRadius(12))
+                            .listRowBackground(Color.purple.opacity(0.3).cornerRadius(12))
                     }
                     .onDelete(perform: expenseViewModel.deleteItem)
                 }
-                .padding(.horizontal)
                 .listStyle(InsetListStyle())
+                .listRowSpacing(8)
+                .padding(.horizontal,4)
                 .overlay {
-                    if expenseViewModel.expenses.isEmpty {
-//                        ContentUnavailableView.init("No expenses for now...",
-//                                                    systemImage: "creditcard.trianglebadge.exclamationmark",
-//                                                    description: Text("Add something!"))
-                        EmptyListView()
-                    }
+                    if expenseViewModel.expenses.isEmpty { EmptyListView() }
                 }
-                
             }
+            .padding(.horizontal,2)
             .toolbar {
                 ToolbarItem(placement: .topBarLeading) {
                     darkModeIcon

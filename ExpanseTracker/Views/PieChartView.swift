@@ -25,7 +25,7 @@ struct PieChartView: View {
             }
         }
         .padding()
-        .frame(width: 400, height: screenHeight/2.45)
+        .frame(width: 400, height: screenHeight/2.3)
         .overlay {
             if viewModel.expenses.isEmpty {
                 ContentUnavailableView.init("No Transactions", systemImage: "cart.badge.questionmark", description: Text("Add at least one transaction to see it on the chart!"))
