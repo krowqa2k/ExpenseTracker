@@ -16,20 +16,21 @@ enum ChartCategory: String, CaseIterable, Identifiable {
 }
 
 struct ExpenseView: View {
-    @AppStorage("isDarkMode") private var isDarkMode = false
+    @AppStorage("isDarkMode") private var isDarkMode = true
     @EnvironmentObject var expenseViewModel: ExpenseViewModel
     let screenHeight: CGFloat = UIScreen.main.bounds.height
     @State private var chartCategory = ChartCategory.barChart
     
     var body: some View {
         NavigationStack {
-            VStack(alignment: .leading) {
-                Text("My Expenses")
-                    .font(.title2)
-                    .fontWeight(.semibold)
-                    .padding(.horizontal, 4)
-                    .foregroundStyle(.purple)
-                
+            Text("My Expenses")
+                .font(.title2)
+                .fontWeight(.semibold)
+                .padding(.horizontal)
+                .foregroundStyle(.purple)
+                .frame(maxWidth: .infinity, alignment: .leading)
+            
+            VStack(alignment: .center) {
                 Picker("Chart", selection: $chartCategory){
                     Image(systemName: "chart.bar.fill")
                         .tag(ChartCategory.barChart)
@@ -44,7 +45,7 @@ struct ExpenseView: View {
                 
                 HStack(){
                     Text("Latest transactions: ")
-                        .padding(.horizontal, 5)
+                        .padding(.horizontal)
                     Spacer()
                     ZStack(){
                         NavigationLink(destination: ExpenseListView()) {
@@ -67,7 +68,7 @@ struct ExpenseView: View {
                 }
                 .listStyle(InsetListStyle())
                 .listRowSpacing(8)
-                .padding(.horizontal,4)
+                .padding(.horizontal,8)
                 .overlay {
                     if expenseViewModel.expenses.isEmpty { EmptyListView() }
                 }
