@@ -1,10 +1,3 @@
-//
-//  ExpanseViewModel.swift
-//  ExpanseTracker
-//
-//  Created by admin on 27/06/2024.
-//
-
 import Foundation
 
 class ExpenseViewModel: ObservableObject {
@@ -20,9 +13,18 @@ class ExpenseViewModel: ObservableObject {
         getExpenses()
     }
     
-    func getExpenses() {
+    func groupedExpenses() -> [ExpenseCategory: Double] {
+        var groupedExpenses: [ExpenseCategory: Double] = [:]
         
-        guard 
+        for expense in expenses {
+            groupedExpenses[expense.category, default: 0] += expense.amount
+        }
+        
+        return groupedExpenses
+    }
+    
+    func getExpenses() {
+        guard
             let data = UserDefaults.standard.data(forKey: itemsKey),
             let savedItems = try? JSONDecoder().decode([Expense].self, from: data)
         else { return }
@@ -31,16 +33,16 @@ class ExpenseViewModel: ObservableObject {
         self.expenses.sort(by: { $0.date > $1.date })
     }
     
-    func addItem(name: String, amount: Double, category: String, date: Date) {
+    func addItem(name: String, amount: Double, category: ExpenseCategory, date: Date) {
         let newExpense = Expense(name: name, amount: amount, category: category, date: date)
         expenses.append(newExpense)
-        expenses.sort(by: { $0.date > $1.date }) 
+        expenses.sort(by: { $0.date > $1.date })
         saveItems()
     }
     
     func deleteItem(indexSet: IndexSet) {
-            expenses.remove(atOffsets: indexSet)
-        }
+        expenses.remove(atOffsets: indexSet)
+    }
     
     func saveItems() {
         if let encodedData = try? JSONEncoder().encode(expenses) {
@@ -60,7 +62,8 @@ extension ExpenseViewModel {
 }
 
 struct CategorySummary: Identifiable {
-    var id: String { category }
-    var category: String
+    var id: ExpenseCategory { category }
+    var category: ExpenseCategory
     var totalAmount: Double
 }
+

@@ -18,7 +18,7 @@ struct TransactionRow: View {
                 Text(expense.name)
                     .font(.headline)
                     .fontWeight(.medium)
-                Text(expense.category)
+                Text(expense.category.rawValue)
                     .font(.caption)
                     .foregroundStyle(.gray)
                 Text(expense.date, format: .dateTime.year().month().day())
@@ -34,12 +34,10 @@ struct TransactionRow: View {
         }
         .frame(width: screenWidth - 50)
         .padding(.horizontal)
-        .border(Color.purple)
-        .cornerRadius(2)
         .foregroundStyle(.purple)
     }
 }
 
 #Preview {
-    TransactionRow(expense: Expense(name: "iPhone 15 Pro", amount: 3899.99, category: "Electronic", date: .now))
+    TransactionRow(expense: Expense(name: "iPhone 15 Pro", amount: 3899.99, category: ExpenseCategory(rawValue: "Electronics") ?? .other, date: .now))
 }

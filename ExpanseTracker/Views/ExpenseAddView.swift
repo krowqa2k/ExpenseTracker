@@ -12,9 +12,9 @@ struct ExpenseAddView: View {
     @Environment(\.dismiss) var dismiss
     @EnvironmentObject private var viewModel: ExpenseViewModel
     @State private var expenseName: String = ""
-    @State private var expenseCategory: String = ""
     @State private var expenseAmount: String = ""
-    @State private var selectedDate: Date? = nil
+    @State private var selectedCategory: ExpenseCategory = .food
+    @State private var selectedDate: Date? = .now
     
     var body: some View {
         VStack {
@@ -42,18 +42,23 @@ struct ExpenseAddView: View {
                 }
                 .font(.subheadline)
                 
-                Section("Category"){
-                    TextField("...", text: $expenseCategory)
+                Section("Category") {
+                    Picker("Select category:",selection: $selectedCategory) {
+                        ForEach(ExpenseCategory.allCases) { category in
+                            Text(category.rawValue).tag(category)
+                                }
+                        }
+                        .pickerStyle(MenuPickerStyle())
                 }
                 .font(.subheadline)
                 
-                Section("Amount"){
-                    TextField("$", text: $expenseAmount)
+                Section("Amount") {
+                    TextField("PLN", text: $expenseAmount)
                         .keyboardType(.decimalPad)
                 }
                 .font(.subheadline)
                 
-                Section("Date of transaction"){
+                Section("Date of transaction") {
                     DatePicker(
                         "Select Date",
                         selection: Binding(
@@ -71,24 +76,22 @@ struct ExpenseAddView: View {
     
     func saveButtonPressed() {
         guard let selectedDate = selectedDate else {
-                print("Date not selected")
-                return
-            }
-        
-            let sanitizedAmount = expenseAmount.replacingOccurrences(of: ",", with: ".")
-            if let amount = Double(sanitizedAmount) {
-                viewModel.addItem(name: expenseName, amount: amount, category: expenseCategory, date: selectedDate)
-                dismiss()
-            } else {
-                   // Obsłuż błąd konwersji
-                print("Invalid amount entered")
-            }
+            print("Date not selected")
+            return
         }
+        
+        let sanitizedAmount = expenseAmount.replacingOccurrences(of: ",", with: ".")
+        if let amount = Double(sanitizedAmount) {
+            viewModel.addItem(name: expenseName, amount: amount, category: selectedCategory, date: selectedDate)
+            dismiss()
+        } else {
+            print("Invalid amount entered")
+        }
+    }
 }
 
-
 #Preview {
-    NavigationStack{
+    NavigationStack {
         ExpenseAddView()
     }
     .environmentObject(ExpenseViewModel())

@@ -11,10 +11,22 @@ struct Expense: Identifiable, Codable {
     var id = UUID()
     var name: String
     var amount: Double
-    var category: String
+    var category: ExpenseCategory
     var date: Date
     
 }
 
+enum ExpenseCategory: String, CaseIterable, Identifiable, Codable {
+    case food = "Food"
+    case transport = "Transport"
+    case housing = "Housing"
+    case electronics = "Electronics"
+    case healthAndBeauty = "Health"
+    case entertainment = "Fun"
+    case clothing = "Clothing"
+    case other = "Other"
+    
+    var id: String { self.rawValue }
+}
 
 

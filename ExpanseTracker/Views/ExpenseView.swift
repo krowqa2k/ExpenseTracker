@@ -11,7 +11,6 @@ import Charts
 enum ChartCategory: String, CaseIterable, Identifiable {
     case pieChart
     case barChart
-    case lineChart
     
     var id: String { self.rawValue }
 }
@@ -36,20 +35,13 @@ struct ExpenseView: View {
                         .tag(ChartCategory.barChart)
                     Image(systemName: "chart.pie.fill")
                         .tag(ChartCategory.pieChart)
-                    Image(systemName: "chart.line.uptrend.xyaxis")
-                        .tag(ChartCategory.lineChart)
                 }
                 .pickerStyle(.segmented)
                 .padding(.horizontal)
                 
                 if chartCategory == ChartCategory.pieChart {
-                    PieChartView()
-                } else if chartCategory == ChartCategory.barChart {
-                    BarChartView()
-                } else {
-                    LineChartView()
-                }
-                
+                        PieChartView()
+                } else  { BarChartView() }
                 
                 HStack(){
                     Text("Latest transactions: ")
@@ -59,15 +51,32 @@ struct ExpenseView: View {
                         NavigationLink(destination: ExpenseListView()) {
                             Text("See all here...")
                                 .foregroundStyle(.black)
-                                .padding(.horizontal)
+                                .padding(.horizontal, 6)
                                 .background(Color(UIColor.secondaryLabel))
                                 .cornerRadius(8)
                         }
                         .padding(3)
                     }
                 }
-                ExpenseListView()
-                    
+                
+                List() {
+                    ForEach(expenseViewModel.expenses){ expense in
+                        TransactionRow(expense: expense)
+                            .listRowBackground(Color.purple.opacity(0.2).cornerRadius(12))
+                    }
+                    .onDelete(perform: expenseViewModel.deleteItem)
+                }
+                .padding(.horizontal)
+                .listStyle(InsetListStyle())
+                .overlay {
+                    if expenseViewModel.expenses.isEmpty {
+//                        ContentUnavailableView.init("No expenses for now...",
+//                                                    systemImage: "creditcard.trianglebadge.exclamationmark",
+//                                                    description: Text("Add something!"))
+                        EmptyListView()
+                    }
+                }
+                
             }
             .toolbar {
                 ToolbarItem(placement: .topBarLeading) {
