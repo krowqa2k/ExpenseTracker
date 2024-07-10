@@ -12,6 +12,12 @@ struct ExpenseListView: View {
     @EnvironmentObject private var viewModel: ExpenseViewModel
     @State private var checkClear: Bool = false
     @State private var showingAlert: Bool = false
+    @State private var searchTerm: String = ""
+    
+    var filteredTransactions: [Expense] {
+        guard !searchTerm.isEmpty else { return viewModel.expenses }
+        return viewModel.expenses.filter { $0.name.localizedCaseInsensitiveContains(searchTerm) }
+    }
     
     var body: some View {
         NavigationStack {
@@ -40,12 +46,13 @@ struct ExpenseListView: View {
                         
                 }
                 List() {
-                    ForEach(viewModel.expenses){ expense in
+                    ForEach(filteredTransactions){ expense in
                         TransactionRow(expense: expense)
                             .listRowBackground(Color.purple.opacity(0.2).cornerRadius(12))
                     }
                     .onDelete(perform: viewModel.deleteItem)
                 }
+                .searchable(text: $searchTerm, placement: .toolbar, prompt: "Search transactions")
                 .padding(.horizontal)
                 .listStyle(InsetListStyle())
                 .overlay {
