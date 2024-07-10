@@ -15,6 +15,7 @@ struct ExpenseAddView: View {
     @State private var expenseAmount: String = ""
     @State private var selectedCategory: ExpenseCategory = .food
     @State private var selectedDate: Date? = .now
+    @FocusState private var isFocused: Bool
     
     var body: some View {
         VStack {
@@ -53,8 +54,16 @@ struct ExpenseAddView: View {
                 .font(.subheadline)
                 
                 Section("Amount") {
-                    TextField("PLN", text: $expenseAmount)
-                        .keyboardType(.decimalPad)
+                    HStack {
+                        TextField("PLN", text: $expenseAmount)
+                            .keyboardType(.decimalPad)
+                            .focused($isFocused)
+                        
+                        Button("Submit") {
+                            isFocused = false
+                        }
+                        .font(.headline)
+                    }
                 }
                 .font(.subheadline)
                 
