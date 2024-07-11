@@ -27,7 +27,14 @@ struct ExpenseView: View {
                 .font(.title2)
                 .fontWeight(.semibold)
                 .padding(.horizontal)
-                .foregroundStyle(.purple)
+                .foregroundStyle(Color.system)
+                .frame(maxWidth: .infinity, alignment: .leading)
+            
+            Text("\(expenseViewModel.totalExpenses, specifier: "%.2f") PLN")
+                .font(.title2)
+                .fontWeight(.semibold)
+                .padding(.horizontal)
+                .foregroundStyle(.primary)
                 .frame(maxWidth: .infinity, alignment: .leading)
             
             VStack(alignment: .center) {
@@ -45,14 +52,16 @@ struct ExpenseView: View {
                 
                 HStack(){
                     Text("Latest transactions: ")
+                        .font(.headline)
                         .padding(.horizontal)
+                        .foregroundStyle(Color.system)
                     Spacer()
                     ZStack(){
                         NavigationLink(destination: ExpenseListView()) {
                             Text("See all here...")
                                 .foregroundStyle(.black)
                                 .padding(.horizontal, 6)
-                                .background(Color(UIColor.secondaryLabel))
+                                .background(Color.system.opacity(0.8))
                                 .cornerRadius(8)
                         }
                         .padding(3)
@@ -62,7 +71,6 @@ struct ExpenseView: View {
                 List() {
                     ForEach(expenseViewModel.expenses){ expense in
                         TransactionRow(expense: expense)
-                            .listRowBackground(Color.purple.opacity(0.3).cornerRadius(12))
                     }
                     .onDelete(perform: expenseViewModel.deleteItem)
                 }
@@ -83,6 +91,7 @@ struct ExpenseView: View {
                 }
             }
         }
+        .tint(.system)
     }
 }
 

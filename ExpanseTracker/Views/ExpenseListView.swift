@@ -25,7 +25,7 @@ struct ExpenseListView: View {
                 HStack {
                     Text("All transactions:")
                         .font(.title3)
-                        .foregroundStyle(.purple)
+                        .foregroundStyle(Color.system)
                         .padding()
                     
                     Spacer()

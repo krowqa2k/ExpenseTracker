@@ -13,12 +13,22 @@ struct TransactionRow: View {
     let screenWidth: CGFloat = UIScreen.main.bounds.width
     
     var body: some View {
-        HStack {
+        HStack(spacing: 8) {
+            Circle()
+                .frame(width: 45, height: 45)
+                .foregroundStyle(Color.system)
+                .overlay {
+                    Text(expense.name.prefix(1).capitalized)
+                        .font(.title)
+                        .fontWeight(.semibold)
+                        .foregroundStyle(.white)
+                }
+
             VStack(alignment: .leading) {
                 Text(expense.name.capitalized)
                     .font(.headline)
                     .fontWeight(.bold)
-                    .foregroundStyle(.white)
+                    .foregroundStyle(Color.system)
                 
                 Text(expense.category.rawValue)
                     .font(.caption)
@@ -30,13 +40,12 @@ struct TransactionRow: View {
             Spacer()
             Text(expense.amount, format: .currency(code: "PLN"))
                 .font(.headline)
-                .foregroundStyle(.white)
+                .foregroundStyle(Color.system)
                 .fontWeight(.bold)
                 .bold()
                 .padding(4)
         }
         .frame(width: screenWidth - 50)
-        .foregroundStyle(.purple)
     }
 }
 

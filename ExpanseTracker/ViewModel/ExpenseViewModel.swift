@@ -7,6 +7,10 @@ class ExpenseViewModel: ObservableObject {
         }
     }
     
+    var totalExpenses: Double {
+            expenses.reduce(0) { $0 + $1.amount }
+        }
+    
     let itemsKey: String = "expense_item"
     
     init() {
