@@ -89,6 +89,8 @@ struct ExpenseAddView: View {
             return
         }
         
+        guard !expenseName.isEmpty else { return }
+        
         let sanitizedAmount = expenseAmount.replacingOccurrences(of: ",", with: ".")
         if let amount = Double(sanitizedAmount) {
             viewModel.addItem(name: expenseName, amount: amount, category: selectedCategory, date: selectedDate)
