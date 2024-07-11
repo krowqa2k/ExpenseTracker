@@ -27,7 +27,7 @@ struct BarChartView: View {
         .chartLegend(spacing: 12)
         .chartXAxis(.hidden)
         .padding()
-        .frame(width: 400, height: screenHeight/2.5)
+        .frame(width: 380, height: screenHeight/2.5)
         .overlay {
             if viewModel.expenses.isEmpty {
                 ContentUnavailableView.init("No Transactions", systemImage: "cart.badge.questionmark", description: Text("Add at least one transaction to see it on the chart!"))
