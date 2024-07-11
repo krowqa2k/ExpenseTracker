@@ -14,7 +14,7 @@ struct ExpenseListView: View {
     @State private var showingAlert: Bool = false
     @State private var searchTerm: String = ""
     
-    var filteredTransactions: [Expense] {
+    private var filteredTransactions: [Expense] {
         guard !searchTerm.isEmpty else { return viewModel.expenses }
         return viewModel.expenses.filter { $0.name.localizedCaseInsensitiveContains(searchTerm) }
     }

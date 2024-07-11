@@ -71,3 +71,9 @@ struct CategorySummary: Identifiable {
     var totalAmount: Double
 }
 
+enum ChartCategory: String, CaseIterable, Identifiable {
+    case pieChart
+    case barChart
+    
+    var id: String { self.rawValue }
+}

@@ -8,13 +8,6 @@
 import SwiftUI
 import Charts
 
-enum ChartCategory: String, CaseIterable, Identifiable {
-    case pieChart
-    case barChart
-    
-    var id: String { self.rawValue }
-}
-
 struct ExpenseView: View {
     @AppStorage("isDarkMode") private var isDarkMode = true
     @EnvironmentObject var expenseViewModel: ExpenseViewModel
