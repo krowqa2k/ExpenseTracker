@@ -1,5 +1,5 @@
 ExpenseTracker
-ExpenseTracker is an expense management app that allows users to track their transactions, categorize expenses, and visualize data using charts. The app is built using SwiftUI and stores data locally using UserDefaults.
+is an expense management app that allows users to track their transactions, categorize expenses, and visualize data using SwiftCharts. The app is built using SwiftUI and stores data locally using UserDefaults.
 The app follows the MVVM (Model-View-ViewModel) architecture for a clean and maintainable codebase.
 
 Features:
