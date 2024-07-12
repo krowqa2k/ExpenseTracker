@@ -16,7 +16,7 @@ struct TransactionRow: View {
         HStack(spacing: 8) {
             Circle()
                 .frame(width: 45, height: 45)
-                .foregroundStyle(Color.system)
+                .foregroundStyle(Color.random)
                 .overlay {
                     Text(expense.name.prefix(1).capitalized)
                         .font(.title)
@@ -28,7 +28,7 @@ struct TransactionRow: View {
                 Text(expense.name.capitalized)
                     .font(.headline)
                     .fontWeight(.bold)
-                    .foregroundStyle(Color.system)
+                    .foregroundStyle(Color.primary)
                 
                 Text(expense.category.rawValue)
                     .font(.caption)
@@ -40,7 +40,7 @@ struct TransactionRow: View {
             Spacer()
             Text(expense.amount, format: .currency(code: "PLN"))
                 .font(.headline)
-                .foregroundStyle(Color.system)
+                .foregroundStyle(Color.primary)
                 .fontWeight(.bold)
                 .bold()
                 .padding(4)

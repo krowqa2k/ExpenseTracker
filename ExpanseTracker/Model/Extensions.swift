@@ -6,21 +6,14 @@
 //
 
 import Foundation
+import SwiftUI
 
-//extension DateFormatter {
-//    static let allNumericUSA: DateFormatter = {
-//        print("Initializing DateFormatter")
-//        let formatter = DateFormatter()
-//        formatter.dateFormat = "MM/dd/yyyy"
-//        
-//        return formatter
-//    }()
-//}
-//
-//extension String {
-//    func dateParsed() -> Date {
-//        guard let parsedDate = DateFormatter.allNumericUSA.date(from: self) else { return Date() }
-//        
-//        return parsedDate
-//    }
-//}
+extension Color {
+    static var random: Color {
+        return Color(
+            red: .random(in: 0...1),
+            green: .random(in: 0...1),
+            blue: .random(in: 0...1)
+        )
+    }
+}

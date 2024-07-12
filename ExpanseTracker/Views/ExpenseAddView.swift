@@ -58,11 +58,14 @@ struct ExpenseAddView: View {
                         TextField("PLN", text: $expenseAmount)
                             .keyboardType(.decimalPad)
                             .focused($isFocused)
-                        
-                        Button("Submit") {
-                            isFocused = false
-                        }
-                        .font(.headline)
+                            .toolbar {
+                                ToolbarItemGroup(placement: .keyboard) {
+                                    Button("Done") {
+                                        isFocused = false
+                                    }
+                                    .font(.headline)
+                                }
+                            }
                     }
                 }
                 .font(.subheadline)

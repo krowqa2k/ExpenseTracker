@@ -83,6 +83,7 @@ struct ExpenseView: View {
                     addExpenseIcon
                 }
             }
+            
         }
         .tint(.system)
     }
