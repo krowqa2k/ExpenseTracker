@@ -15,7 +15,7 @@ struct ExpenseTrackerApp: App {
     
     var body: some Scene {
         WindowGroup {
-            ExpenseView()
+            SplashScreenView()
                 .environmentObject(ExpenseViewModel())
                 .preferredColorScheme(isDarkMode ? .dark : .light)
         }

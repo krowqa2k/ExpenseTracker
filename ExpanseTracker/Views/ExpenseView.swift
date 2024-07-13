@@ -66,6 +66,7 @@ struct ExpenseView: View {
                         TransactionRow(expense: expense)
                     }
                     .onDelete(perform: expenseViewModel.deleteItem)
+                    .listRowSeparator(.hidden)
                 }
                 .listStyle(InsetListStyle())
                 .listRowSpacing(8)

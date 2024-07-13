@@ -20,6 +20,7 @@
 		843287222C3D7C1500DE1EC1 /* PieChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843287212C3D7C1500DE1EC1 /* PieChartView.swift */; };
 		843287272C3D948D00DE1EC1 /* BarChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843287262C3D948D00DE1EC1 /* BarChartView.swift */; };
 		844202312C3EDB7C00C2291F /* EmptyListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844202302C3EDB7C00C2291F /* EmptyListView.swift */; };
+		84C0AD5A2C42B4E60096A93B /* SplashScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C0AD592C42B4E60096A93B /* SplashScreenView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,6 +38,7 @@
 		843287212C3D7C1500DE1EC1 /* PieChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PieChartView.swift; sourceTree = "<group>"; };
 		843287262C3D948D00DE1EC1 /* BarChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarChartView.swift; sourceTree = "<group>"; };
 		844202302C3EDB7C00C2291F /* EmptyListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyListView.swift; sourceTree = "<group>"; };
+		84C0AD592C42B4E60096A93B /* SplashScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreenView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,6 +99,7 @@
 				843287212C3D7C1500DE1EC1 /* PieChartView.swift */,
 				843287262C3D948D00DE1EC1 /* BarChartView.swift */,
 				844202302C3EDB7C00C2291F /* EmptyListView.swift */,
+				84C0AD592C42B4E60096A93B /* SplashScreenView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -203,6 +206,7 @@
 				843287272C3D948D00DE1EC1 /* BarChartView.swift in Sources */,
 				841936492C2DB4470089C7E0 /* ExpenseModel.swift in Sources */,
 				841936362C2DA88C0089C7E0 /* ExpanseTrackerApp.swift in Sources */,
+				84C0AD5A2C42B4E60096A93B /* SplashScreenView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

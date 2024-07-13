@@ -45,7 +45,7 @@ struct TransactionRow: View {
                 .bold()
                 .padding(4)
         }
-        .frame(width: screenWidth - 50)
+        .frame(maxWidth: .infinity)
     }
 }
 
